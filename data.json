@@ -1,0 +1,74 @@
+{
+  "customers": [
+    {
+      "username": "john_doe",
+      "name": "John Doe"
+    },
+    {
+      "username": "jane_smith",
+      "name": "Jane Smith"
+    }
+  ],
+  "delivery": [
+    {
+      "username": "delivery1"
+    },
+    {
+      "username": "delivery2"
+    }
+  ],
+  "menus": [
+    {
+      "name": "Burger",
+      "price": 10.99
+    },
+    {
+      "name": "Pizza",
+      "price": 12.99
+    }
+  ],
+  "orders": [
+    {
+      "customer": "customer1",
+      "restaurant": "restaurant1",
+      "menuItems": [
+        {
+          "item": "menuItem1",
+          "quantity": 2
+        }
+      ],
+      "status": "Pending"
+    },
+    {
+      "customer": "customer2",
+      "restaurant": "restaurant2",
+      "menuItems": [
+        {
+          "item": "menuItem2",
+          "quantity": 3
+        }
+      ],
+      "status": "Accepted"
+    }
+  ],
+  "restaurants": [
+    {
+      "name": "Restaurant A",
+      "menu": ["menuItem1"]
+    },
+    {
+      "name": "Restaurant B",
+      "menu": ["menuItem2"]
+    }
+  ],
+  "owners": [
+    {
+      "username": "owner1",
+      "restaurant": "restaurant1"
+    },
+    {
+      "username": "owner2",
+      "restaurant": "restaurant2"
+    }
+  ]
+}
