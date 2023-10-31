@@ -1,5 +1,22 @@
 const { Order } = require('../models');
 
+const statusEnum = {
+  'Pending': 'Pending',
+  'Accepted': 'Accepted',
+  'Rejected': 'Rejected',
+  'Cooked': 'Cooked',
+  'Picked': 'Picked',
+  'Delivered': 'Delivered'
+}
+
+const statusFlow = {
+  'Pending': ['Accepted', 'Rejected'],
+  'Accepted': ['Cooked'],
+  'Cooked': ['Picked'],
+  'Picked': ['Delivered'],
+  'Delivered': []
+}
+
 // Accept an order for delivery
 const acceptOrder = async (req, res) => {
   const { orderId } = req.params;
@@ -18,6 +35,13 @@ const acceptOrder = async (req, res) => {
     res.status(500).json({ error: 'Error accepting the order for delivery' });
   }
 };
+
+const updateStatus = (currentStatus, targetStatus) => {
+  if (statusFlow[currentStatus].includes(targetStatus)) {
+    return targetStatus
+  }
+  return new Error('Invalid status')
+}
 
 // Pick up an order
 const pickOrder = async (req, res) => {
